@@ -1,1 +1,41 @@
-.bubble { padding: 10px; border: 1px solid #ddd; min-width: 50px; text-align: center; border-radius: 4px; }
+body {
+    background-color: orangered;
+    
+    font-family: "Cutive";
+    font-size: 18px;
+    color: white;
+}
+
+.bubble {
+    overflow: visible;
+        
+    text-align:  center;
+    text-shadow: 1px 1px 1px black;
+}
+
+.bubble [contenteditable="true"] {
+    padding: 0px 4px;
+        
+    outline-style:      none;
+    -moz-outline-style: none;
+}
+
+.bubble .handle {
+    width: 100%;
+    background-color: black;
+    
+    font-size: x-small;
+    
+    cursor: move;
+    
+    opacity: 0;
+    
+    transition:         ease-in-out 0.5s;
+    -moz-transition:    ease-in-out 0.5s;
+    -webkit-transition: ease-in-out 0.5s;
+    -o-transition:      ease-in-out 0.5s;
+}
+
+.bubble:hover .handle {
+    opacity: 1;
+}

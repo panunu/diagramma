@@ -1,5 +1,5 @@
 {
-    "hash": "db89fd68978af4c05fd1dbbecef77c14",
+    "hash": "288343b262a591e0c47712d82ce9c9cf",
     "packages": [
         {
             "package": "doctrine/common",
@@ -11,21 +11,20 @@
             "source-reference": "8cc129aa64a8de6447056bce20f0a274fe2a340b"
         },
         {
-            "package": "pimple/pimple",
+            "package": "knplabs/repository-service-provider",
             "version": "dev-master",
-            "alias-pretty-version": "1.0.x-dev",
-            "alias-version": "1.0.9999999.9999999-dev"
-        },
-        {
-            "package": "pimple/pimple",
-            "version": "dev-master",
-            "alias-pretty-version": "1.0.x-dev",
-            "alias-version": "1.0.9999999.9999999-dev"
+            "source-reference": "e55316bf936b5446ee1357eb294a5284a979bbb4"
         },
         {
             "package": "pimple/pimple",
             "version": "dev-master",
             "source-reference": "694448bdd2b7d802517104bdafe1a6f2591506c8"
+        },
+        {
+            "package": "pimple/pimple",
+            "version": "dev-master",
+            "alias-pretty-version": "1.0.x-dev",
+            "alias-version": "1.0.9999999.9999999-dev"
         },
         {
             "package": "silex/silex",
@@ -94,6 +93,7 @@
     ],
     "minimum-stability": "dev",
     "stability-flags": {
-        "silex/silex": 20
+        "silex/silex": 20,
+        "knplabs/repository-service-provider": 20
     }
 }

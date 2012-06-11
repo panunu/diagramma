@@ -8,9 +8,20 @@ $app->register(new Silex\Provider\TwigServiceProvider(), array(
 
 $app->register(new Silex\Provider\DoctrineServiceProvider(), array(
     'db.options' => array(
-        'driver' => 'pdo_sqlite',
-        'path'   => __DIR__.'/app.db',
+        'driver'   => 'pdo_mysql',
+        'host'     => 'localhost',
+        'dbname'   => 'diagramma',
+        'user'     => 'root',
+        'password' => '',
     ),
 ));
+
+$app->register(
+    new Knp\Provider\RepositoryServiceProvider(), array(
+        'repository.repositories' => array(
+            'ideas' => 'panunu\diagramma\Idea',
+        )
+    )
+);
 
 return $app;

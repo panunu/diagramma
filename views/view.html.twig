@@ -1,0 +1,11 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    
+{% endblock %}
+
+{% block javascripts %}
+    <script type="text/coffeescript">
+        $(document).ready -> window.app.init('{{ idea|raw }}')
+    </script>
+{% endblock %}

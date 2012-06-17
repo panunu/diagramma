@@ -1,50 +1,56 @@
 class App
 
-  run: ->
-    @noise()
-    @remove()
-    @drag()
-    @create()
-    @rotate()
-
-  noise: ->
-    $('body').noiseGen({
-      opacity: 0.15,
-      width: 100,
-      height: 100,
-      fromColor: "ffffff",
-      toColor: "000000"
-    });
+  enable: ->
+    @removing()
+    @dragging()
+    @creating()
+    @resizing()
+      
+  init: (data) ->
+    data = JSON.parse(data)
     
-  remove: ->
+    for idea in data
+      elem = new Element(idea.idea, idea.x, idea.y, idea.size).spawn()
+      
+  removing: ->
     $('.content').live 'blur', ->
       if $(this).text().trim() is ''
         $(this).parents('.bubble').fadeOut 500, -> $(this).remove()
       
-  drag: ->
+  dragging: ->
     $('.bubble:not(.ui-draggable)').live 'mouseover', ->
       $(this).draggable({ handle: '.handle', cursor: 'move' })
 
-  create: ->
+  creating: ->
     $(document).dblclick event, ->
       if not event.altKey then return
-      
-      $('#template').clone()
-        .removeAttr('id')
-        .css('top', event.clientY)
-        .css('left', event.clientX - 65)
-        .hide()
-        .appendTo('.container')
-        .fadeIn('slow')
+      new Element('idea', event.clientX - 64, event.clientY, 18).spawn()
         
-  rotate: ->
-    $('.bubble .rotate').live 'change', ->
+  resizing: ->
+    $('.bubble .resize').live 'change', ->
       $('.content', $(this).parents('.bubble')).css 'font-size', $(this).val() + 'px'
 
 
+class Element
+  @$elem = null
+  
+  constructor: (content, x, y, size) ->  
+    @$elem = $('#template').clone()
+      .removeAttr('id')
+      .hide()
+      .css('top',  y + 'px')
+      .css('left', x + 'px')
+        
+    $('.content', @$elem).text(content).css('font-size', size + 'px')
+    $('.resize', @$elem).val(size)
+    
+  spawn: ->
+    @$elem.appendTo('.container').fadeIn('slow')
+
+
 $(document).ready ->
-  app = new App
-  app.run()
+  window.app = new App
+  window.app.enable()
 
 ###     
   jsPlumb.ready(function() {

@@ -17,7 +17,7 @@ body {
 
 .bubble .content {
     padding: 0px 4px;
-        
+    
     outline-style:      none;
     -moz-outline-style: none;
     
@@ -27,9 +27,12 @@ body {
     -o-transition:      ease-in-out 0.25s;
 }
 
-.bubble .handle, .bubble .rotate {
-    width: 100%;
-    max-width: 100%;
+.bubble .handle, .bubble .resize {
+    float: left;
+    
+    width:     25px;
+    min-width: 100%;
+    
     background-color: black;
     
     font-size: x-small;
@@ -44,9 +47,9 @@ body {
     -o-transition:      opacity ease-in-out 0.5s;
 }
 
-.bubble .rotate { z-index: 999; cursor: default; }
+.bubble .resize { z-index: 999; cursor: default; }
 
-.bubble:hover .handle, .bubble:hover .rotate {
+.bubble:hover .handle, .bubble:hover .resize {
     opacity: 1;
 }
 
